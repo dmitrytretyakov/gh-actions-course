@@ -1,0 +1,19 @@
+name: GitHub Actions Demo
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '!.github/'
+  pull_request:
+    branches:
+      - main
+  schedule:
+    - cron: '15 6 * * 6'
+  workflow_dispatch:
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dump runner context
+        run: echo "${{ toJSON(runner) }}"
